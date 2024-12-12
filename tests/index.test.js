@@ -607,6 +607,16 @@ describe('Admin/Map Creator endpoints', () => {
             }
          })
 
+         const createAvatarResponse = await axios.post(`${BACKEND_URL}/api/v1/admin/avatar`, {
+            "thumbnail": "https://thumbnail.com/a.png",
+            "dimensions": "100x200",
+            "name": "100 person interview room",
+            "defaultElements": []
+         }, {
+            headers: {
+                Authorization: `Bearer ${userToken}`
+            }
+         })
          expect(elementResponse.statusCode).toBe(403);
          expect(mapResponse.statusCode).toBe(403);
     })
