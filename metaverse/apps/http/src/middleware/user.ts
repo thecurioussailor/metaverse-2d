@@ -6,7 +6,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 export const userMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const header = req.headers.authorization;
     const token = header?.split(" ")[1];
-
     if(!token){
         res.status(401).json({
             message: "Unauthorized"
